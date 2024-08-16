@@ -61,7 +61,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-app.get("/", (req, res) =>{res.json("Pitchhme")})
+app.get("/",(req, res) =>{res.json("Pitchhme")})
+
+app.get("/demandEnquiry", async (req, res)=>{
+  const blah = await Enquiry.find({});
+  res.json(blah);
+})
+app.get("/demandCareer", async (req, res)=>{
+  const blah = await Career.find({});
+  res.json(blah);
+})
 
 //api for career form
 
